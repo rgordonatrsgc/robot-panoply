@@ -170,7 +170,7 @@ void setup() {
   RGRobot gordonBot = new RGRobot();
   gordonBot.drawAt(825, 500, 0.25, 0.25);
   fill(0);
-  text("RGRobot", 850, 450);
+  text("RGRobot", 850, 650);
 
 
 } 
