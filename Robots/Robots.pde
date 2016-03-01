@@ -1,5 +1,5 @@
 int scene = 1 ;
-int totalStars = 1000;
+int totalStars = 1000; // I think you need a comment here
 float[] stary = new float[totalStars]; // stary[0], stary[1], stary[2]... stary[9]
 float[] starx = new float[totalStars]; // float[] h = {1, 310, 12412.4824};
 int pressed = 0;
