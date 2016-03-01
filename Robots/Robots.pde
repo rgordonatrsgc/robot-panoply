@@ -59,7 +59,8 @@ void draw () {
 
     MCRobot d = new MCRobot () ;
     d.drawAt (540, 460, 0.5, 0.5);
-  } else if (scene == 2) {
+  } 
+  if (scene == 2) {
     //Scene 2
     background(0); 
 
@@ -86,7 +87,7 @@ void draw () {
     //background (10); 
 
     EHRobot elirobot = new EHRobot ();
-    elirobot.drawAt (650, 290, 0.3, 0.3);
+    elirobot.drawAt (650, 310, 0.3, 0.3);
 
     ASPRobot adam = new ASPRobot (); 
     adam.drawAt(425, 180, 0.5, 0.5);
@@ -111,6 +112,8 @@ void draw () {
     //random number generator
   }
   if (scene == 3) {
+    //Scene 3
+
     background(0); 
     fill(255); 
     textSize(50); 
@@ -122,26 +125,32 @@ void draw () {
     int i = 0 ; 
 
     while (i < totalStars) { 
-      if (pressed == 2) {
+      if (pressed == 0) {
         stary[i] = random(0, 701); 
         starx[i] = random(0, 1001);
       }
       ellipse(starx[i], stary[i], 2, 2); 
       i += 1;
     } 
-    pressed = 3;
+    pressed = 1;
+
+
     fill(255, 255, 0); 
-    ellipse(575, 400, 250, 500); 
+    ellipse(675, 400, 250, 500); 
+    ellipse(675, 500, 250, 500); 
+    fill(255, 140, 0); 
+    ellipse(675, 400, 220, 450); 
+    ellipse(675, 500, 220, 450); 
 
     ASPRobot adam = new ASPRobot (); 
-    adam.drawAt(425, 100, 0.5, 1);
+    adam.drawAt(525, 100, 0.5, 1);
 
     EPRobot ethan = new EPRobot (); 
-    ethan.drawAt(100, 325, 0.3, 0.3); 
+    ethan.drawAt(100, 400, 0.3, 0.3); 
 
     KCRobot kern = new KCRobot (); 
     kern.drawAt(50, 75, 0.3, 0.3) ;
-    
+
     EHRobot elirobot = new EHRobot ();
     elirobot.drawAt (120, 150, 0.3, 0.3);
   }
