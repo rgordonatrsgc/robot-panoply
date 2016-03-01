@@ -1,11 +1,13 @@
-int scene = 1 ;
-int totalStars = 1000;
+// From Mr. Gordon (see suggestions below for comments)
+int scene = 1;                          // for changing scenes
+int totalStars = 1000;                  // (describe purpose of this variable here)
 float[] stary = new float[totalStars]; // stary[0], stary[1], stary[2]... stary[9]
 float[] starx = new float[totalStars]; // float[] h = {1, 310, 12412.4824};
-int pressed = 0;
-int textX = 100;
+int pressed = 0;                       // (describe purpose of this variable here)
+int textX = 100;                       // (et cetera)
 int textY = 650;
-//First Tableau
+
+// runs once
 void setup () {
   float random = 16;
   random = random(0, 1000);
@@ -17,21 +19,25 @@ void setup () {
   smooth();
 }
 
+// runs repeatedly
 void draw () {
 
   background (60); 
 
   if (scene == 1) { 
+  
     //Window
     fill (25);   
     strokeWeight (2); 
     stroke (200); 
     rect (400, 200, 600, 300);
 
+    // From Mr. G – comment needed
     fill(255); 
     textSize(50); 
     text("'Death Star sighted!' ", textX, textY); 
 
+    // From Mr. G – comment needed
     int i = 0;
     while (i < totalStars/3) {        //While the total stars veariable is less than i, it will run this code again and again. 
       if (pressed == 0) {
@@ -45,6 +51,7 @@ void draw () {
       i += 1; //This makes the the integer i increase by 1.
     } 
     pressed = 1;
+    
     //Scene 1 
 
     DHRobot danielrobot = new DHRobot (); 
@@ -59,8 +66,9 @@ void draw () {
 
     MCRobot d = new MCRobot () ;
     d.drawAt (540, 460, 0.5, 0.5);
-  } 
-  if (scene == 2) {
+    
+  } else if (scene == 2) {
+  
     //Scene 2
     background(0); 
 
@@ -72,8 +80,8 @@ void draw () {
     noStroke(); 
     fill (255);
 
-    int i = 0 ; 
-
+    // From Mr. G – comment needed
+    int i = 0; 
     while (i < totalStars) {        //While the total stars veariable is less than i, it will run this code again and again. 
       if (pressed == 0) {
         stary[i] = random(0, 700);    //Changes the value of starx[1], starx[2], starx[3], etc... to 
@@ -84,7 +92,7 @@ void draw () {
     } 
     pressed = 1;
 
-    //background (10); 
+    //background (10); // From Mr. G – remove this if not needed any more
 
     EHRobot elirobot = new EHRobot ();
     elirobot.drawAt (650, 310, 0.3, 0.3);
@@ -110,10 +118,10 @@ void draw () {
     line (475, 275, 500, 290); 
 
     //random number generator
-  }
-  if (scene == 3) {
+    
+  } elseif (scene == 3) {
+  
     //Scene 3
-
     background(0); 
     fill(255); 
     textSize(50); 
@@ -123,7 +131,8 @@ void draw () {
     fill (255);
 
     int i = 0 ; 
-
+    
+    // From Mr. G – comment needed
     while (i < totalStars) { 
       if (pressed == 0) {
         stary[i] = random(0, 701); 
@@ -134,7 +143,7 @@ void draw () {
     } 
     pressed = 1;
 
-
+    // From Mr. G – comment needed - what is this block of code for?
     fill(255, 255, 0); 
     ellipse(675, 400, 250, 500); 
     ellipse(675, 500, 250, 500); 
@@ -142,24 +151,30 @@ void draw () {
     ellipse(675, 400, 220, 450); 
     ellipse(675, 500, 220, 450); 
 
+    // From Mr. G – comment needed
     ASPRobot adam = new ASPRobot (); 
     adam.drawAt(525, 100, 0.5, 1);
 
+    // From Mr. G – comment needed
     EPRobot ethan = new EPRobot (); 
     ethan.drawAt(100, 400, 0.3, 0.3); 
 
+    // From Mr. G – comment needed
     KCRobot kern = new KCRobot (); 
     kern.drawAt(50, 75, 0.3, 0.3) ;
 
+    // From Mr. G – comment needed
     EHRobot elirobot = new EHRobot ();
     elirobot.drawAt (120, 150, 0.3, 0.3);
   }
 }
 
 void keyPressed () { 
+
   scene += 1 ;
   pressed = 0;
-  if (scene > 3) {
+  if (scene > 3) {    // I can see what this conditional statement if for, but briefly describe it for others please
     scene = 1 ;
   }
+  
 }
