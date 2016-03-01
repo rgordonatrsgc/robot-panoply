@@ -3,6 +3,8 @@ int totalStars = 1000;
 float[] stary = new float[totalStars]; // stary[0], stary[1], stary[2]... stary[9]
 float[] starx = new float[totalStars]; // float[] h = {1, 310, 12412.4824};
 int pressed = 0;
+int textX = 100;
+int textY = 650;
 //First Tableau
 void setup () {
   float random = 16;
@@ -17,7 +19,7 @@ void setup () {
 
 void draw () {
 
-  background (50); 
+  background (60); 
 
   if (scene == 1) { 
     //Window
@@ -25,6 +27,10 @@ void draw () {
     strokeWeight (2); 
     stroke (200); 
     rect (400, 200, 600, 300);
+
+    fill(255); 
+    textSize(50); 
+    text("'Death Star sighted!' ", textX, textY); 
 
     int i = 0;
     while (i < totalStars/3) {        //While the total stars veariable is less than i, it will run this code again and again. 
@@ -55,6 +61,12 @@ void draw () {
     d.drawAt (540, 460, 0.5, 0.5);
   } else if (scene == 2) {
     //Scene 2
+    background(0); 
+
+    fill(255); 
+    textSize(50); 
+    text("'Destroy the Death Star' ", textX, textY); 
+
     //stars
     noStroke(); 
     fill (255);
@@ -74,16 +86,16 @@ void draw () {
     //background (10); 
 
     EHRobot elirobot = new EHRobot ();
-    elirobot.drawAt (650, 290, 0.5, 0.5);
+    elirobot.drawAt (650, 290, 0.3, 0.3);
 
     ASPRobot adam = new ASPRobot (); 
     adam.drawAt(425, 180, 0.5, 0.5);
 
     EPRobot ethan = new EPRobot (); 
-    ethan.drawAt(245, 325, 0.5, 0.5); 
+    ethan.drawAt(245, 325, 0.3, 0.3); 
 
     KCRobot kern = new KCRobot (); 
-    kern.drawAt(200, 75, 0.5, 0.5) ;
+    kern.drawAt(300, 100, 0.3, 0.3) ;
 
     //laser for Eli's
     strokeWeight (5) ;
@@ -97,6 +109,41 @@ void draw () {
     line (475, 275, 500, 290); 
 
     //random number generator
+  }
+  if (scene == 3) {
+    background(0); 
+    fill(255); 
+    textSize(50); 
+    text("'WOHOO' ", textX, textY);
+
+    noStroke(); 
+    fill (255);
+
+    int i = 0 ; 
+
+    while (i < totalStars) { 
+      if (pressed == 2) {
+        stary[i] = random(0, 701); 
+        starx[i] = random(0, 1001);
+      }
+      ellipse(starx[i], stary[i], 2, 2); 
+      i += 1;
+    } 
+    pressed = 3;
+    fill(255, 255, 0); 
+    ellipse(575, 400, 250, 500); 
+
+    ASPRobot adam = new ASPRobot (); 
+    adam.drawAt(425, 100, 0.5, 1);
+
+    EPRobot ethan = new EPRobot (); 
+    ethan.drawAt(100, 325, 0.3, 0.3); 
+
+    KCRobot kern = new KCRobot (); 
+    kern.drawAt(50, 75, 0.3, 0.3) ;
+    
+    EHRobot elirobot = new EHRobot ();
+    elirobot.drawAt (120, 150, 0.3, 0.3);
   }
 }
 
